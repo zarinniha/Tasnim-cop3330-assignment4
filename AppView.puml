@@ -1,0 +1,75 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class App
+{
+   +main(String)
+   +start(Stage)
+}
+
+class AppViewController
+{
+    -DueDate: DatePicker
+    -ItemComplete: Button
+    -ItemDesc: TextArea
+    -TaskTitle: TextField
+    -itemList: ListView
+    -list: ToDoList
+
+    +AddItem(ActionEvent)
+    +EditItem(ActionEvent)
+    +DeletItem(ActionEvent)
+    +EditTask(ActionEvent)
+    +DeletTask(ActionEvent)
+    +DisplayAll(ActionEvent)
+    +displayComplete(ActionEvent)
+    +displayIncomplete(ActionEvent)
+    +searchItemButton(ActionEvent)
+    +LoadItemButton(ActionEvent)
+    +saveItemButton(ActionEvent)
+    +LoadallItemButton(ActionEvent)
+    +SaveallButton(ActionEvent)
+    +RefreshList(ActionEvent)
+}
+
+class ItemList
+{
+ -description: String
+ -date: LocalDate
+ -isComplete: boolean
+
+ +setDate(LocalDate)
+ +setDescription(String)
+ +setComplete(boolean)
+ +getName()
+ +getDate()
+ +getDescription()
+ +getComplete()
+ }
+
+
+ class ToDoList
+ {
+   -title: String
+   -list:  ArrayList<ItemList>
+
+   +addarrayList (ArrayList<ItemList>)
+   +removeList(ArrayList<ItemList>,String)
+   +setTitle(String)
+   +getTitle()
+   +NameExists(String)
+   +getItem(String)
+   +addItem(String, String, LocalDate, boolean)
+   +updateItemDesc( String, String)
+   +updateItemDate(LocalDate,LocalDate)
+   +removeItem(String)
+   +exportIList(String)
+   +importIList(String)
+   +importIListAll(String)
+   +findItem(String)
+   +displayAll(ArrayList<ItemList>)
+   +displayIncomplete(ArrayList<ItemList>)
+   +displaycomplete(ArrayList<ItemList>)
+ }
+
+@enduml
